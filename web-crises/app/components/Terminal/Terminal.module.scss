@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+.terminal {
+  background-color: #0a0a0a;
+  color: #a2f6f7;
+  font-family: "VT323", monospace;
+  font-size: 24px;
+  border: 2px solid #444;
+  box-shadow: 0 0 10px #bbb;
+  overflow: hidden;
+  position: relative;
+}
+
+.terminalHeader {
+  background: #0d0d0d;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #00ffff22;
+}
+.retroHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Share Tech Mono", monospace;
+  background-color: #0f0f0f;
+  color: #00ff9f;
+  font-size: 0.85rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #333;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 -1px 0 #222;
+
+  .signal {
+    color: #ff2c75;
+    font-weight: bold;
+  }
+}
+
+.terminalButtons {
+  display: flex;
+  gap: 6px;
+  margin-right: 10px;
+
+  span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+  }
+
+  .closeButton {
+    background: #ff3c41;
+    box-shadow: 0 0 5px #ff3c41aa;
+  }
+
+  .minimizeButton {
+    background: #f5e050;
+    box-shadow: 0 0 5px #f5e050aa;
+  }
+
+  .expandButton {
+    background: #00d742;
+    box-shadow: 0 0 5px #00d742aa;
+  }
+}
+
+.terminalTitle {
+  color: #a2f6f7;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.terminalBody {
+  padding: 1rem;
+  min-height: 300px;
+  overflow-y: auto;
+  line-height: 1.6;
+  background: #000;
+}
+
+.command {
+  color: #a2f6f7;
+}
+
+.response {
+  font-family: monospace;
+  white-space: pre-wrap;
+  color: #a3db7d;
+  animation: glitch 1s infinite steps(2, jump-none);
+}
+
+.system {
+  color: #a3db7d;
+  margin-bottom: 1rem;
+}
+
+.terminalInput {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #0d0d0d;
+  border-top: 1px solid #00ffff22;
+
+  span {
+    color: #a2f6f7;
+    margin-right: 5px;
+  }
+
+  input {
+    background: transparent;
+    border: none;
+    color: #a2f6f7;
+    font-family: inherit;
+    font-size: 1rem;
+    flex-grow: 1;
+    outline: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Scrollbar */
+.terminalBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.terminalBody::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+.terminalBody::-webkit-scrollbar-thumb {
+  background: #a2f6f7;
+}
+.terminal {
+  background-image: repeating-linear-gradient(
+    0deg,
+    #0a0a0a,
+    #0a0a0a 1px,
+    #0d0d0d 1px,
+    #0d0d0d 2px
+  );
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  background: #a2f6f7;
+  animation: blink 1s step-end infinite;
+}
+.signal {
+  font-family: monospace;
+  text-transform: uppercase;
+  animation: glitch 1s infinite steps(2, jump-none);
+}
+
+@keyframes glitch {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+.retroCard {
+  width: 100%;
+  background: #0f0f0f;
+  color: #a2f6f7;
+  font-family: "VT323", monospace;
+  font-size: 24px;
+
+  padding: 10px;
+  border: 2px solid #444;
+  box-shadow: 0 0 10px #bbb;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 20px; // Añade margen para separación
+
+  .retroHeader {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+
+    .signal {
+      font-size: 16px;
+    }
+  }
+
+  .retroId {
+    .label {
+      font-size: 24px;
+    }
+
+    .name {
+      font-size: 24px;
+    }
+  }
+
+  .retroBody {
+    display: flex;
+    gap: 10px;
+
+    .photo {
+      width: 200px;
+      height: 200px;
+      max-height: 200px;
+      object-fit: scale-down;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 16px;
+    }
+  }
+
+  .retroAuth {
+    border-top: 1px dashed #333;
+    padding-top: 6px;
+    font-size: 16px;
+  }
+
+  .retroFooter {
+    margin-top: 6px;
+    font-size: 16px;
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 4px;
+  }
+}

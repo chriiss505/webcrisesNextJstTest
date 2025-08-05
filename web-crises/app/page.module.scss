@@ -1,0 +1,387 @@
+/* Reset básico */
+
+// Añade al principio de tu archivo SCSS
+@mixin glassmorphism-effect {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Definir PP-Mori Extralight */
+@font-face {
+  font-family: "PP-Mori";
+  src: url("../public/assets/fonts/PPMori-Extralight.otf") format("opentype");
+  font-weight: 200; /* Extralight */
+  font-style: normal;
+}
+
+/* Definir PP-Mori Extralight Italic */
+@font-face {
+  font-family: "PP-Mori";
+  src: url("../public/assets/fonts/PPMori-ExtralightItalic.otf")
+    format("opentype");
+  font-weight: 200; /* Extralight */
+  font-style: italic;
+}
+
+/* Definir PP-Mori Regular */
+@font-face {
+  font-family: "PP-Mori";
+  src: url("../public/assets/fonts/PPMori-Regular.otf") format("opentype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+/* Definir PP-Mori Regular Italic */
+@font-face {
+  font-family: "PP-Mori";
+  src: url("../public/assets/fonts/PPMori-RegularItalic.otf") format("opentype");
+  font-weight: 400; /* Regular */
+  font-style: italic;
+}
+
+/* Definir PP-Mori SemiBold */
+@font-face {
+  font-family: "PP-Mori";
+  src: url("../public/assets/fonts/PPMori-SemiBold.otf") format("opentype");
+  font-weight: 600; /* SemiBold */
+  font-style: normal;
+}
+
+/* Definir PP-Mori SemiBold Italic */
+@font-face {
+  font-family: "PP-Mori";
+  src: url("../public/assets/fonts/PPMori-SemiBoldItalic.otf")
+    format("opentype");
+  font-weight: 600; /* SemiBold */
+  font-style: italic;
+}
+@font-face {
+  font-family: "Karla";
+  src: url("../public/assets/fonts/Karla.TTF") format("opentype");
+}
+@font-face {
+  font-family: "Inconsolata";
+  src: url("../public/assets/fonts/Inconsolata.TTF") format("opentype");
+}
+
+.main {
+  padding-top: 70px; /* Igual a la altura del navbar */
+
+  section {
+    scroll-margin-top: 70px; /* Igual a la altura del navbar */
+    margin-top: 20px;
+  }
+
+  .comingSoonSection {
+    padding-top: 0; /* Elimina el padding superior */
+  }
+
+  #hero {
+    padding-top: 0;
+  }
+}
+
+.body {
+  font-family: "PP-Mori", sans-serif;
+}
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 0%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 100% 100%;
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    background-position: 0% 0%;
+    filter: hue-rotate(360deg);
+  }
+}
+
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  background-image: url("../public/assets/images/bg1.png");
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+
+  animation: moveBackground 60s ease-in-out infinite,
+    hueAnimation 30s linear infinite;
+}
+
+.logoContainer {
+  position: relative;
+  width: 80%; /* Ajusta el ancho del contenedor */
+  height: 20%; /* Ajusta el alto del contenedor */
+}
+
+.floatingLogo {
+  animation: float 3s ease-in-out infinite;
+}
+
+.scrollContainer {
+  position: relative;
+  margin-top: 90vh;
+  z-index: 20;
+  /* Márgenes laterales responsivos: */
+  margin-left: clamp(
+    5px,
+    10px,
+    500px
+  ); /* Móvil: 2vh | Tablet: 50px | Desktop: 500px */
+  margin-right: clamp(5px, 10px, 500px); /* Igual que izquierdo */
+
+  /* Opcional: Transición suave al redimensionar */
+  transition: margin 0.3s ease;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.floatingLogo:hover {
+  animation-duration: 0.1s;
+  animation-timing-function: ease-in;
+}
+.navbar {
+  position: fixed; /* Fija la posición */
+  top: 0; /* Coloca en la parte superior */
+  left: 0;
+  width: 100%; /* Ancho completo */
+  display: flex;
+  justify-content: center; /* Centra los enlaces horizontalmente */
+  align-items: center;
+  padding: 1.5rem 0; /* Espaciado vertical */
+  backdrop-filter: blur(10px); /* Efecto glass */
+  z-index: 1000; /* Asegura que esté por encima de todo */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+}
+
+.navLink {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+  position: relative;
+  font-family: "Karla", sans-serif; /* Aplicar la fuente PP-Mori */
+  font-weight: 600; /* Peso normal (Regular) */
+  font-style: normal; /* Estilo normal (no cursiva) */
+  text-transform: uppercase;
+}
+
+.navLink:hover {
+  left: 0;
+  top: 0;
+  color: rgb(47, 255, 151);
+}
+
+/* Sección Nosotras */
+/* Sección Nosotras */
+
+.nosotrasContainer {
+  margin: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  gap: 2rem;
+  justify-content: center;
+
+  /* Desktop: 3 columnas */
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+  }
+}
+
+.nosotras {
+  position: relative;
+  z-index: 20;
+}
+
+.profile {
+  background-color: #1a1a1a;
+  backdrop-filter: blur(30px);
+  border: 1px solid #2e2e2e;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.profileImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333; /* Borde para la imagen */
+}
+
+.profile h3 {
+  font-size: 3rem;
+  margin-top: 10px;
+  color: #ffffff;
+  font-weight: 800;
+  font-family: "Karla", sans-serif; /* Aplicar la fuente PP-Mori */
+}
+
+.profile p {
+  font-size: 2rem;
+  color: #6a9955;
+  font-family: "Courier New", monospace;
+  font-weight: 400;
+}
+
+.profile blockquote {
+  font-size: 2rem;
+
+  color: #ffffff;
+  margin-top: 10px;
+  font-family: "Courier New", monospace;
+  font-weight: 400;
+}
+
+// Luego usa:
+.manifesto {
+  color: #f0f0f0; // Texto en verde/verde claro típico de terminal
+  font-family: "Courier New", monospace;
+
+  position: relative;
+  overflow: hidden;
+
+  // Contenido centrado con aspecto de terminal
+  .terminal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+
+    pre {
+      white-space: pre-wrap;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  .manifesto .h2 {
+    color: #00ff00; // Verde terminal
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .command {
+    color: #4da6ff; // Azul para comandos
+  }
+
+  .comment {
+    color: #6a9955; // Verde oscuro para comentarios
+    font-style: italic;
+  }
+
+  .response {
+    color: #f0f0f0;
+    margin-bottom: 1rem;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+.galleryContainer {
+  overflow-x: auto;
+  white-space: nowrap;
+  position: relative;
+}
+
+.gallery {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.drag-me {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  padding: 10px 20px;
+  border-radius: 50%;
+  display: none;
+}
+
+.galleryContainer:hover .drag-me {
+  display: block;
+}
+
+/* Sección Canal+ */
+#canal {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.coming-soon {
+  text-align: center;
+  font-size: 2rem;
+}
+.sectionWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+.contacto {
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #a2f6f7;
+  font-family: "Karla", sans-serif; /* Aplicar la fuente PP-Mori */
+}

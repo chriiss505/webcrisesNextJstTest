@@ -1,0 +1,59 @@
+.comingSoonSection {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  background-color: #000;
+  font-family: "VT323", monospace;
+  color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.retroHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Share Tech Mono", monospace;
+  background-color: #0f0f0f;
+  color: #00ff9f;
+  font-size: 0.85rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #333;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 -1px 0 #222;
+  z-index: 10;
+
+  .signal {
+    color: #ff2c75;
+    font-weight: bold;
+  }
+}
+
+.videoBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.3);
+}
+
+.textOverlay {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  font-size: 15rem;
+  text-transform: uppercase;
+  user-select: none;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
